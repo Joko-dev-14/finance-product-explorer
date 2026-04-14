@@ -1,0 +1,38 @@
+.card {
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.active {
+  background: #3d3d3d;
+  color: white;
+  flex: 2;
+}
+
+.inactive {
+  background: #5a5a5a;
+  color: white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.inactive:hover {
+  opacity: 0.9;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+}
