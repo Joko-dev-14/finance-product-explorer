@@ -173,7 +173,7 @@ Given more time I would have converted the project to TypeScript and added loadi
 AI tooling was used to assist with parts of this project to help save time due to the projects time constraints and my Dyslexia.
 e.g. the text heavy sections:
 - README.file
-- Setting up the CMS schema for Contetful
+- Setting up the CMS schema for Contentful
 - Writing the unit tests
 All generated content has been reviewed, understood, and adapted where necessary. 
 I am able to explain, maintain, debug, and extend every aspect of the solution.
