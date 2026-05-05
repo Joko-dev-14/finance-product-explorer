@@ -1,10 +1,10 @@
-# Moneybox Product Explorer
+# Product Explorer
 
-A Next.js web application that displays all Moneybox financial products, organised by category. Built as part of the Moneybox Web Team technical task.
+A Next.js web application that displays all Moneybox financial products, organised by category. Built as part of the Finance Web Team technical task.
 
 ## Overview
 
-The app presents a single page where users can browse Moneybox's product range through an interactive category carousel. Each category expands to show its products in an accessible accordion layout, with an icon and description for each product.
+The app presents a single page where users can browse Finance's product range through an interactive category carousel. Each category expands to show its products in an accessible accordion layout, with an icon and description for each product.
 
 Content is managed via Contentful, meaning business users can add, update, or remove categories and products without any developer input. The Contentful REST API also makes the data accessible to other platforms such as a mobile app.
 
