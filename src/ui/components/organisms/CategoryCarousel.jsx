@@ -38,7 +38,7 @@ export default function CategoryCarousel({ categories }) {
         </button>
 
         <div className="text-center">
-          <h1 className="text-xl font-semibold text-gray-800">Explore Accounts</h1>
+          <h1 className="sm:text-md md:text-xl font-semibold text-gray-800">Explore Accounts</h1>
           <p className="mt-0.5 text-xs text-gray-400">
             {activeIndex + 1} of {categories.length}
           </p>

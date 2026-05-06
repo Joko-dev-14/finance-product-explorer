@@ -37,10 +37,10 @@ export default async function ProductPage({ params }) {
         <span className="mb-4 inline-block rounded-full bg-[#78e3df]/20 px-3 py-1 text-xs font-medium text-[#3d3d3d]">
           {product.categoryName}
         </span>
-        <div className="flex items-start gap-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
           {imageUrl && (
             <Image src={imageUrl} alt={product.fields.name} width={80} height={80}
-              className="shrink-0 rounded-xl object-contain" priority />
+              className="shrink-0 rounded-xl object-contain mx-auto" priority />
           )}
           <div>
             <h1 className="mb-3 text-2xl font-bold text-gray-800">{product.fields.name}</h1>

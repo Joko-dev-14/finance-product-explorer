@@ -65,14 +65,14 @@ export default function ProductRow({ product }) {
           aria-label={product.fields.name}
           className="border-t border-white/20 bg-black/20 px-4 pb-4 pt-3"
         >
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
             {imageUrl && (
               <Image
                 src={imageUrl}
                 alt={product.fields.name}
                 width={44}
                 height={44}
-                className="h-11 w-11 shrink-0 rounded-lg object-contain"
+                className="h-11 w-11 shrink-0 rounded-lg object-contain  mx-auto"
               />
             )}
             <p className="text-sm leading-relaxed text-white/80">
