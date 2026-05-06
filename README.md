@@ -22,7 +22,7 @@ Content is managed via Contentful, meaning business users can add, update, or re
 | Accessible (keyboard navigable, colour contrast, semantic HTML) | ✅ ARIA roles, keyboard navigation, semantic HTML implemented |
 | A working solution that can be run locally | ✅ |
 | Pushed the project to a GitHub repository | ✅ |
-| A README with a short description of your project, how to run it, and any access to third-party software required to update the site | ✅ |
+| A README with a short description of your project, how to run it | ✅ |
 
 
 ## Key Requirements Met
