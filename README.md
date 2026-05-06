@@ -1,6 +1,6 @@
 # Finance Product Explorer
 
-A Next.js web application that displays all financial products, organised by category. Built as part of the Finance Web Team technical task.
+A React.js/Next.js web application that displays all financial products, organised by category. Built as part of the Finance Web Team technical task.
 
 ## Overview
 
@@ -47,7 +47,7 @@ Unit and integration tests cover the core user interactions — expanding and co
 - **Next.js** (App Router)
 - **React**
 - **Contentful** (headless CMS) 
-- **CSS Modules**
+- **Tailwind CSS**
 - **Jest** + **React Testing Library**
 
 ## Getting Started
