@@ -47,15 +47,7 @@ export default async function ProductPage({ params }) {
             <p className="leading-relaxed text-gray-600">{product.fields.description}</p>
           </div>
         </div>
-        <div className="mt-8 rounded-xl border border-dashed border-gray-200 bg-gray-50 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-400">How this page was fetched</p>
-          <ul className="space-y-1 text-sm text-gray-600">
-            <li><span className="font-medium">Strategy:</span> <code className="rounded bg-gray-200 px-1.5 py-0.5 text-xs">generateStaticParams</code> → pre-rendered at build time (SSG)</li>
-            <li><span className="font-medium">Route:</span> <code className="rounded bg-gray-200 px-1.5 py-0.5 text-xs">/products/{slug}</code></li>
-            <li><span className="font-medium">Data source:</span> Contentful CMS via <code className="rounded bg-gray-200 px-1.5 py-0.5 text-xs">getProductBySlug()</code></li>
-            <li><span className="font-medium">Params resolved:</span> <code className="rounded bg-gray-200 px-1.5 py-0.5 text-xs">{JSON.stringify({ slug })}</code></li>
-          </ul>
-        </div>
+
       </div>
     </div>
   );
