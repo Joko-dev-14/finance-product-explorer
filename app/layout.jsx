@@ -14,16 +14,16 @@ const inter = Inter({
 // Defined once in the root layout and inherited by every page.
 export const metadata = {
   title: {
-    default: "Moneybox Products",
+    default: "Finance Products",
     // Page-level layouts / pages can override just the segment:
-    // e.g. title: "ISAs" renders as "ISAs | Moneybox Products"
-    template: "%s | Moneybox Products",
+    // e.g. title: "ISAs" renders as "ISAs | Finance Products"
+    template: "%s | Finance Products",
   },
-  description: "Explore all Moneybox savings and investment products",
+  description: "Explore all Finance savings and investment products",
   // Open Graph gives social platforms a rich preview when the URL is shared.
   openGraph: {
-    title: "Moneybox Products",
-    description: "Explore all Moneybox savings and investment products",
+    title: "Finance Products",
+    description: "Explore all Finance savings and investment products",
     type: "website",
   },
 };
