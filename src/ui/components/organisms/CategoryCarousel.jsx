@@ -1,23 +1,26 @@
 "use client";
+// CategoryCarousel now reads ALL state from ProductContext instead of managing
+// it locally with useState. This demonstrates the Context + useReducer pattern:
+// the component is purely presentational — it dispatches actions and renders
+// state, but owns none of it.
 
-import { useState } from "react";
 import CategoryCard from "../molecules/CategoryCard";
-import styles from "./CategoryCarousel.module.css";
+import { useProducts } from "../../../store/ProductContext";
 
-// TODO: add swipe gesture support for mobile navigation
 export default function CategoryCarousel({ categories }) {
-  const savingsIndex = categories.findIndex((c) =>
-    c.fields.name.toLowerCase().includes("saving"),
-  );
-  const [activeIndex, setActiveIndex] = useState(
-    savingsIndex !== -1 ? savingsIndex : 0,
-  );
+  // Destructure exactly what this component needs from context.
+  // Components only re-render when their specific slice of context changes.
+  const {
+    activeIndex,
+    canGoPrev,
+    canGoNext,
+    goNext,
+    goPrev,
+    setActiveIndex,
+    favouriteCount,
+    collapseAll,
+  } = useProducts();
 
-  const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
-  const next = () =>
-    setActiveIndex((i) => Math.min(categories.length - 1, i + 1));
-
-  // always keep active category centred by anchoring the window around it
   const visibleCategories = [
     categories[activeIndex - 1] ?? null,
     categories[activeIndex],
@@ -25,33 +28,61 @@ export default function CategoryCarousel({ categories }) {
   ];
 
   return (
-    <section aria-label="Product categories">
-      <div className={styles.header}>
+    <section aria-label="Product categories" className="mx-auto max-w-6xl px-6 pb-12">
+
+      {/* Navigation row */}
+      <div className="mb-8 mt-8 flex items-center justify-center gap-6">
         <button
-          onClick={prev}
-          disabled={activeIndex === 0}
-          className={styles.navBtn}
+          onClick={goPrev}
+          disabled={!canGoPrev}
           aria-label={`Previous category: ${categories[activeIndex - 1]?.fields.name ?? "none"}`}
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-[#78e3df] text-2xl transition-opacity hover:opacity-60 disabled:cursor-not-allowed disabled:bg-gray-300"
         >
           ‹
         </button>
-        <h1 className={styles.heading}>Explore Accounts</h1>
+
+        <div className="text-center">
+          <h1 className="text-xl font-semibold text-gray-800">Explore Accounts</h1>
+          {/* Progress indicator — derived from context state */}
+          <p className="mt-0.5 text-xs text-gray-400">
+            {activeIndex + 1} of {categories.length}
+          </p>
+        </div>
+
         <button
-          onClick={next}
-          disabled={activeIndex === categories.length - 1}
-          className={styles.navBtn}
+          onClick={goNext}
+          disabled={!canGoNext}
           aria-label={`Next category: ${categories[activeIndex + 1]?.fields.name ?? "none"}`}
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-[#78e3df] text-2xl transition-opacity hover:opacity-60 disabled:cursor-not-allowed disabled:bg-gray-300"
         >
           ›
         </button>
       </div>
 
-      {/* Desktop */}
-      <div
-        className={`${styles.carousel} ${styles.desktopOnly}`}
-        role="tablist"
-        aria-label="Product categories"
-      >
+      {/* Favourites + collapse bar — only visible when relevant */}
+      {(favouriteCount > 0 || true) && (
+        <div className="mb-4 flex items-center justify-between rounded-xl bg-white px-4 py-2.5 shadow-sm">
+          <span className="text-sm text-gray-600">
+            {favouriteCount > 0 ? (
+              <>
+                <span className="mr-1">❤️</span>
+                <strong>{favouriteCount}</strong> product{favouriteCount !== 1 ? "s" : ""} saved
+              </>
+            ) : (
+              <span className="text-gray-400">No saved products yet — click ♡ to save one</span>
+            )}
+          </span>
+          <button
+            onClick={collapseAll}
+            className="text-xs text-gray-400 underline underline-offset-2 hover:text-gray-600"
+          >
+            Collapse all
+          </button>
+        </div>
+      )}
+
+      {/* Desktop: three-column carousel */}
+      <div role="tablist" aria-label="Product categories" className="hidden gap-4 md:flex">
         {visibleCategories.map((category, i) =>
           category ? (
             <CategoryCard
@@ -61,13 +92,13 @@ export default function CategoryCarousel({ categories }) {
               onSelect={() => setActiveIndex(categories.indexOf(category))}
             />
           ) : (
-            <div key={`empty-${i}`} className={styles.emptySlot} />
-          ),
+            <div key={`empty-${i}`} className="flex-1" />
+          )
         )}
       </div>
 
-      {/* Mobile */}
-      <div className={`${styles.carousel} ${styles.mobileOnly}`}>
+      {/* Mobile: single active card */}
+      <div className="flex md:hidden">
         <CategoryCard
           key={categories[activeIndex].sys.id}
           category={categories[activeIndex]}
