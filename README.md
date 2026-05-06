@@ -4,7 +4,7 @@ A React.js/Next.js web application that displays all financial products, organis
 
 ## Overview
 
-The app presents a single page where users can browse the Finance product range through an interactive category carousel. Each category expands to show its products in an accessible accordion layout, with an icon and description for each product.
+The app presents a single page where users can browse the Finance product range through an interactive category carousel. Each category expands to show its products in an accessible accordion layout, with an icon and description for each product.Yuo can also search for the Product and select a product as your favourite product.
 
 Content is managed via Contentful, meaning business users can add, update, or remove categories and products without any developer input. The Contentful REST API also makes the data accessible to other platforms such as a mobile app.
 
@@ -153,39 +153,12 @@ CategoryCarousel.test.jsx
 - Keyboard navigable — inactive categories activatable with `Enter` or `Space`
 - Colour contrast reviewed against WCAG AA guidelines
 
-## Time Constraints
 
-This project was completed within a 3 hour time limit. The following were prioritised in order of importance:
+## Future Improvements if I had more time
 
-1. Contentful setup and data fetching
-2. Core UI components matching the wireframe
-3. Mobile responsive view
-4. Accessibility
-5. Tests
-6. Optimised images/assets
-7. Tested adding new products to contentful as a business user
-8. README
-
-Given more time I would have converted the project to TypeScript and added loading and error states for the Contentful fetch.
-
-## Use of AI
-
-AI tooling was used to assist with parts of this project to help save time due to the projects time constraints and my Dyslexia.
-e.g. the text heavy sections:
-- README.file
-- Setting up the CMS schema for Contentful
-- Writing the unit tests
-All generated content has been reviewed, understood, and adapted where necessary. 
-I am able to explain, maintain, debug, and extend every aspect of the solution.
-
-## Future Improvements if had more time
-
-- Convert to TypeScript for stronger type safety
 - Add loading and error states for the Contentful fetch
 - Contentful staging environment for safe content updates
-- Convert CSS to Tailwind CSS
 - Improve UI to make it even more visually appealing
-- Accordion open/close animation
 - Expand test coverage to include end-to-end tests
 - Convert from Contentful to GraphQL Restful API
 - Optimisation improvements - testing in lighthouse /dev tools
