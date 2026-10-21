@@ -154,7 +154,7 @@ CategoryCarousel.test.jsx
 - Colour contrast reviewed against WCAG AA guidelines
 
 
-## Future Improvements if I had more time
+## Roadmap & Future Improvements
 
 - Add loading and error states for the Contentful fetch
 - Contentful staging environment for safe content updates
